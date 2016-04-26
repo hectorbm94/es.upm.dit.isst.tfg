@@ -37,7 +37,6 @@ public class Es_upm_dit_isst_NuevoTfgServlet extends HttpServlet {
 		List<modelo> tfgs = dao.readAlumno(req.getUserPrincipal().getName());
 		if ( tfgs.size()>0){
 			alerta = "Usted ya tiene un TFG";
-			req.getSession().setAttribute("alerta", alerta);
 		}
 		else{
 			dao.create(req.getUserPrincipal().getName(),titulo,resumen,tutor,"","", 1);
@@ -59,9 +58,9 @@ public class Es_upm_dit_isst_NuevoTfgServlet extends HttpServlet {
 			    } catch (MessagingException e) {
 			        // ...
 			    }
-
+			alerta = "Su TFG esta pendiente de aprobacion";
 		}
-		
+		req.getSession().setAttribute("alerta", alerta);
 		resp.sendRedirect("/es_upm_dit_isst_tfg");
 	}
 

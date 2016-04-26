@@ -12,7 +12,7 @@ public interface TFGDAO {
 	public List<modelo> readTutor (String tutor);
 	public List<modelo> readSecretario (String secretario);
 	public List<modelo> readEstado (int estado);
-	public modelo update (modelo TFG);
+	public void update (modelo TFG);
 	public void delete (modelo TFG);
 
 }

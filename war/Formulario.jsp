@@ -20,6 +20,5 @@
 			<input type="submit" value="Solicitud" />
 		</form>
 	</c:if>
-	
 </body>
 </html>

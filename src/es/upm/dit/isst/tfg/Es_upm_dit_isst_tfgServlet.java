@@ -24,6 +24,7 @@ public class Es_upm_dit_isst_tfgServlet extends HttpServlet {
 		String url = userService.createLoginURL(req.getRequestURI());
 		String urlLinktext = "Login";
 		String user = null;
+		String profesor = null;
 		
 		TFGDAO dao = TFGDAOImpl.getInstance();
 		
@@ -44,7 +45,10 @@ public class Es_upm_dit_isst_tfgServlet extends HttpServlet {
 				
 			} else if (dao.readTutor(req.getUserPrincipal().getName()).size() > 0){
 				//view = req.getRequestDispatcher("Solicitudes.jsp");
+				profesor = "si";
 				req.getSession().setAttribute("tfgs", new ArrayList<modelo>(dao.readTutor(req.getUserPrincipal().getName())));
+				req.getSession().setAttribute("profesor", profesor);
+				req.getSession().setAttribute("alerta", null);
 			} else{
 				view = req.getRequestDispatcher("Formulario.jsp");
 			}

@@ -13,8 +13,8 @@ public class Es_upm_dit_isst_InitServlet extends HttpServlet {
 		TFGDAO dao = TFGDAOImpl.getInstance();
 		
 		//dao.create("hectorbm94@gmail.com", "Ubertooth", "Herramientas de ataque Bluetooth con Ubertooth", "villagra@dit.upm.es", "", "", 2);
-		dao.create("fatigc94@gmail.com", "Clima Laboral", "Herramienta de ciberseguridad, aplicada al clima laboral", "villagra@dit.upm.es", "", "", 1);
+		dao.create("fatigc94@gmail.com", "Clima Laboral", "Herramienta de ciberseguridad, aplicada al clima laboral", "hectorbm94@gmail.com", "", "", 1);
 		dao.create("cobealex@gmail.com", "Ataques Kali Linux", "Base de datos de ataques de Kali Linux", "villagra@dit.upm.es", "", "", 3);
-		dao.create("cpsalazar17@gmail.com", "Everis", "Confidencial", "villagra@dit.upm.es", "", "", 1);
+		dao.create("cpsalazar17@gmail.com", "Everis", "Confidencial", "hectorbm94@gmail.com", "", "", 2);
 	}
 }

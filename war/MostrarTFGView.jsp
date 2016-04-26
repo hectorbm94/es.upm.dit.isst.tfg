@@ -8,6 +8,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link href="css/Estilo.css" rel="stylesheet" type="text/css" />
 <title>TFG</title>
 </head>
 <body>
@@ -16,30 +17,49 @@
 		<p>
 			<c:out value="${user}" />
 		</p>
-		<table>
-			<c:forEach items="${tfgs}" var="tfg">
-				<tr>
-					<th>Autor</th>
-					<td><c:out value="${tfg.autor}" /></td>
-				</tr>
-				<tr>
-					<th>Titulo</th>
-					<td><c:out value="${tfg.titulo}" /></td>
-				</tr>
-				<tr>
-					<th>Resumen</th>
-					<td><c:out value="${tfg.resumen}" /></td>
-				</tr>
-				<tr>
-					<th>Tutor</th>
-					<td><c:out value="${tfg.tutor}" /></td>
-				</tr>
-				<tr>
-					<th>Estado</th>
-					<td><c:out value="${tfg.estado}" /></td>
-				</tr>
-			</c:forEach>
+		<div class="datagrid">
+			<table>
+			<tbody>
+				<c:forEach items="${tfgs}" var="tfg">
+					<tr>
+						<th>Autor</th>
+						<td><c:out value="${tfg.autor}" /></td>
+					</tr>
+					<tr>
+						<th>Titulo</th>
+						<td><c:out value="${tfg.titulo}" /></td>
+					</tr>
+					<tr>
+						<th>Resumen</th>
+						<td><c:out value="${tfg.resumen}" /></td>
+					</tr>
+					<tr>
+						<th>Tutor</th>
+						<td><c:out value="${tfg.tutor}" /></td>
+					</tr>
+					<tr>
+						<th>Estado</th>
+						<td><c:out value="${tfg.estado}" /></td>
+					</tr>
+						<c:if test="${profesor != null and tfg.estado == 1}">
+							<tr id="ultima">
+								<td>Aceptar</td>
+								<form action="/AceptarTFG" method="post">
+									<input type="hidden" name="autor" value="${tfg.autor}" />
+									<td><input type="submit"/></td>
+								</form>
+							</tr>
+						</c:if>
+					<tr>
+						<td> </td>					
+					</tr>
+					<tr>
+						<td> </td>					
+					</tr>
+					</c:forEach>
+			</tbody>
 		</table>
+		</div>
 		<c:if test="${empty tfgs}">
 			<p>
 				Puedes pulsar el siguiente enlace para solicitar un TFG 

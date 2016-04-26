@@ -96,11 +96,11 @@ public class TFGDAOImpl implements TFGDAO {
 	}
 
 	@Override
-	public modelo update(modelo TFG) {
+	public void update(modelo TFG) {
 
 		EntityManager em = EMFService.get().createEntityManager();
 		em.merge(TFG);
-		return TFG;
+		em.close();
 	}
 
 	@Override
@@ -108,6 +108,7 @@ public class TFGDAOImpl implements TFGDAO {
 
 		EntityManager em = EMFService.get().createEntityManager();
 		em.remove(TFG);
+		em.close();
 	}
 
 }
