@@ -47,13 +47,13 @@ public class Es_upm_dit_isst_tfgServlet extends HttpServlet {
 				//view = req.getRequestDispatcher("Solicitudes.jsp");
 				profesor = "si";
 				req.getSession().setAttribute("tfgs", new ArrayList<modelo>(dao.readTutor(req.getUserPrincipal().getName())));
-				req.getSession().setAttribute("profesor", profesor);
 				req.getSession().setAttribute("alerta", null);
 			} else{
 				view = req.getRequestDispatcher("Formulario.jsp");
 			}
 		}
 		
+		req.getSession().setAttribute("profesor", profesor);
 		req.getSession().setAttribute("user", user);
 		req.getSession().setAttribute("url", url);
 		req.getSession().setAttribute("urlLinktext", urlLinktext);

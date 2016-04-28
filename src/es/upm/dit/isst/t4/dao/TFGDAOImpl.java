@@ -3,6 +3,7 @@ package es.upm.dit.isst.t4.dao;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
 
 import es.upm.dit.isst.t4.model.modelo;
@@ -104,11 +105,15 @@ public class TFGDAOImpl implements TFGDAO {
 	}
 
 	@Override
-	public void delete(modelo TFG) {
+	public void delete(String autor) {
 
 		EntityManager em = EMFService.get().createEntityManager();
-		em.remove(TFG);
-		em.close();
+		try{
+		   modelo tfg = em.find(modelo.class, autor);
+		   em.remove(tfg);
+		} finally{
+		   em.close();
+		}
 	}
 
 }

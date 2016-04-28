@@ -13,6 +13,6 @@ public interface TFGDAO {
 	public List<modelo> readSecretario (String secretario);
 	public List<modelo> readEstado (int estado);
 	public void update (modelo TFG);
-	public void delete (modelo TFG);
+	public void delete (String autor);
 
 }

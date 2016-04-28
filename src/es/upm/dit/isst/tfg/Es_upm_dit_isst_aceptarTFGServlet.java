@@ -23,11 +23,16 @@ public class Es_upm_dit_isst_aceptarTFGServlet extends HttpServlet {
 		List<modelo> TFGs = dao.readAlumno(autor);
 		if (TFGs.size() > 0){
 			
-			if(TFGs.get(0).getEstado() == 1){				
-				
-				TFGs.get(0).setEstado(2);
-				dao.update(TFGs.get(0));
+			if (req.getParameter("accion").equals("aceptar")){
+				if(TFGs.get(0).getEstado() == 1){				
+					
+					TFGs.get(0).setEstado(2);
+					dao.update(TFGs.get(0));
+				}
+			} else {
+				dao.delete(autor);
 			}
+			
 		}
 		req.getSession().setAttribute("alerta", null);		
 		resp.sendRedirect("/es_upm_dit_isst_tfg");

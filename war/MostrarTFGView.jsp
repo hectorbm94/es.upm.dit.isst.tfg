@@ -42,10 +42,19 @@
 						<td><c:out value="${tfg.estado}" /></td>
 					</tr>
 						<c:if test="${profesor != null and tfg.estado == 1}">
-							<tr id="ultima">
+							<tr>
 								<td>Aceptar</td>
 								<form action="/AceptarTFG" method="post">
 									<input type="hidden" name="autor" value="${tfg.autor}" />
+									<input type="hidden" name="accion" value="aceptar" />
+									<td><input type="submit"/></td>
+								</form>
+							</tr>
+							<tr id="ultima">
+								<td>Declinar</td>
+								<form action="/AceptarTFG" method="post">
+									<input type="hidden" name="autor" value="${tfg.autor}" />
+									<input type="hidden" name="accion" value="rechazar" />
 									<td><input type="submit"/></td>
 								</form>
 							</tr>
