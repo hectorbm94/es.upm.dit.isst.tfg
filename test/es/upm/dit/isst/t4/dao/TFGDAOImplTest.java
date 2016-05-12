@@ -35,6 +35,9 @@ public class TFGDAOImplTest {
 		assertEquals(tfg.getEstado(), 1);
 		modelo tfg2 = tfgdao.create("autor@gmail.com", "titulo", "resumen", "tutor@gmail.com", "secretario@gmail.com", null, 2);
 		assertEquals(tfg2.getAutor(), "autor@gmail.com");
+		assertEquals(tfgdao.read().size(), 2);
+		tfgdao.create("autor@gmail.com", "prueba", "resumen", "tutor@gmail.com", "secretario@gmail.com", null, 2);
+		assertEquals(tfgdao.read().size(), 2);
 		
 		//fail("Not yet implemented");
 	}

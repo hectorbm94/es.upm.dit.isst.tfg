@@ -3,7 +3,6 @@ package es.upm.dit.isst.t4.dao;
 import java.util.List;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
 
 import es.upm.dit.isst.t4.model.modelo;
